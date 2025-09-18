@@ -1,4 +1,5 @@
 
 * [textures](https://sachaterrier.github.io/VR/demoVR_texture)
 
-* [labyrinthe](./labyrinthe.html)
+* [labyrinthe](https://sachaterrier.github.io/VR/labyrinthe.html)
+
