@@ -1,1 +1,60 @@
-<html></html>
+<html>
+
+  <head>
+    <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+  </head>
+
+  <body>
+
+    <a-scene>
+
+      <a-assets>
+      <img id="zigzag" src="assets/img/zigzag.jpg">
+      <img id="ciel" src="assets/img/ciel rouge.jpg">
+      <img id="rideau" src="assets/img/rideau.jpg">
+
+      
+
+      </a-assets>
+
+      <!-- formes -->
+       <!-- <a-entity geometry="primitive: box" position="1 2 -3" scale="0.5 0.5 0.5" color="#4CC3D9"></a-entity> -->
+
+      
+
+      <!-- environnement  -->
+      <a-plane src="#zigzag" position="0 0 0" rotation="-90 0 0" width="4" height="4"></a-plane>
+
+      
+      <!-- contour -->
+      <a-plane src="#rideau" material="side: double" position="1.25 1 2" width="1.5" height="2"></a-plane>
+      <a-plane src="#rideau" material="side:double" position="0 1 -2" rotation="0 0 0" width="4" height="2"></a-plane>
+      <a-plane src="#rideau" material="side: double" position="2 1 0" rotation="0 -90 0" width="4" height="2"></a-plane>
+      <a-plane src="#rideau" material="side: double" position="-2 1 0" rotation="0 90 0" width="4" height="2"></a-plane>
+      <a-plane src="#rideau" material="side: double" position="-1 1 2" width="2" height="2"></a-plane>
+
+      <!-- moitié droite  -->
+      <a-plane src="#rideau" material="side: double" position="-1.5 1 -1" width="1" height="2"></a-plane>
+     <a-plane src="#rideau" material="side: double" position="-1 1 -0.87700" width="1.25" height="2" rotation="0 90 0"></a-plane>
+    
+      <a-plane src="#rideau" material="side: double" position="-1.5 1 -0.072" width="0.75" height="2" rotation="0 90 0"></a-plane>
+      <a-plane src="#rideau" material="side: double" position="-1.25 1 0.767" width="1.5" height="2"></a-plane>
+      <a-plane src="#rideau" material="side: double" position="-1.5 1 1.626" width="0.75" height="2" rotation="0 90 0"></a-plane>
+      <a-plane src="#rideau" material="side: double" position="-0.5 1 1.13121" width="0.75" height="2" rotation="0 90 0"></a-plane>
+      <a-plane src="#rideau" material="side: double" position="0.00093 1 1.12976" width="1.75" height="2" rotation="0 90 0"></a-plane>
+     <a-plane src="#rideau" material="side: double" position="0.5 1 1.5" width="1" height="2" rotation="0 90 0"></a-plane>
+       <a-plane src="#rideau" material="side: double" position="0.478 1 -0.72131" width="1.5" height="2"></a-plane>
+       <a-plane src="#rideau" material="side: double" position="0.61414 1 0.25084" width="1.25" height="2"></a-plane>
+       <a-plane src="#rideau" material="side: double" position="1.22941 1 0.02384" width="1.5" height="2" rotation="0 90 0"></a-plane>
+      <a-plane src="#rideau" material="side: double" position="0.8836 1 -1.24628" width="2.25" height="2"></a-plane>
+         <a-plane src="#rideau" material="side: double" position="1.62093 1 1.23227" width="0.75" height="2"></a-plane>
+      <a-sky src="#ciel"></a-sky>
+
+      <a-camera position="0 1.6 0" look-controls wasd-controls></a-camera>
+      <!-- <a-entity camera="active: true" look-controls wasd-controls position="0 1.6 0" data-aframe-default-camera></a-entity> -->
+      
+    </a-scene>
+
+  </body>
+
+</html>
