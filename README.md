@@ -1,5 +1,5 @@
 
 * [textures](./demoVR_texture.html)
 * [labyrinthe](./labyrinthe.html)
-* [labyrinthe](./what_a_mess.html)
+* [what a mess !](./what_a_mess.html)
 
