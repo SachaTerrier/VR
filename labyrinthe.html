@@ -9,10 +9,17 @@
     <a-scene>
 
       <a-assets>
+
       <img id="zigzag" src="assets/img/zigzag.jpg">
       <img id="ciel" src="assets/img/ciel rouge.jpg">
       <img id="rideau" src="assets/img/rideau.jpg">
 
+      
+     <a-asset-item id="model-mtl" src="assets/3Dmodels/venus/statue.mtl"></a-asset-item>
+     <a-asset-item id="model-obj" src="assets/3Dmodels/venus/statue.obj"></a-asset-item>
+     <a-asset-item id="lampe-mtl" src="assets/3Dmodels/lampe/Untitled.mtl"></a-asset-item>
+     <a-asset-item id="lampe-obj" src="assets/3Dmodels/lampe/Untitled.obj"></a-asset-item>
+     <a-asset-item id="corbeau-glb" src="assets/3Dmodels/crow.glb"></a-asset-item>
       
 
       </a-assets>
@@ -37,7 +44,7 @@
       <a-plane src="#rideau" material="side: double" position="-1.5 1 -1" width="1" height="2"></a-plane>
      <a-plane src="#rideau" material="side: double" position="-1 1 -0.87700" width="1.25" height="2" rotation="0 90 0"></a-plane>
     
-      <a-plane src="#rideau" material="side: double" position="-1.5 1 -0.072" width="0.75" height="2" rotation="0 90 0"></a-plane>
+      <!-- <a-plane src="#rideau" material="side: double" position="-1.5 1 -0.072" width="0.75" height="2" rotation="0 90 0"></a-plane> -->
       <a-plane src="#rideau" material="side: double" position="-1.25 1 0.767" width="1.5" height="2"></a-plane>
       <a-plane src="#rideau" material="side: double" position="-1.5 1 1.626" width="0.75" height="2" rotation="0 90 0"></a-plane>
       <a-plane src="#rideau" material="side: double" position="-0.5 1 1.13121" width="0.75" height="2" rotation="0 90 0"></a-plane>
@@ -47,10 +54,25 @@
        <a-plane src="#rideau" material="side: double" position="0.61414 1 0.25084" width="1.25" height="2"></a-plane>
        <a-plane src="#rideau" material="side: double" position="1.22941 1 0.02384" width="1.5" height="2" rotation="0 90 0"></a-plane>
       <a-plane src="#rideau" material="side: double" position="0.8836 1 -1.24628" width="2.25" height="2"></a-plane>
+
+       <!-- statue -->
+     <a-entity position="-1.49706 -0.00781 -0.73771" scale="0.5 0.5 0.5" obj-model="mtl: assets/3Dmodels/venus/statue.mtl; obj: assets/3Dmodels/venus/statue.obj" rotation="0.1 90 0"></a-entity>
+     <a-entity position="-1.72389 0 -1.73504" scale="0.1 0.1 0.1" obj-model="mtl: assets/3Dmodels/lampe/Untitled.mtl; obj: assets/3Dmodels/lampe/Untitled.obj"></a-entity>
+     <a-entity position="-1.72389 0 1.73825" scale="0.1 0.1 0.1" obj-model="mtl: assets/3Dmodels/lampe/Untitled.mtl; obj: assets/3Dmodels/lampe/Untitled.obj"></a-entity>
+     <a-entity position="1.80223 0 -1.73504" scale="0.1 0.1 0.1" obj-model="mtl: assets/3Dmodels/lampe/Untitled.mtl; obj: assets/3Dmodels/lampe/Untitled.obj"></a-entity>
+
+     <a-entity position="1.80223 0 1.61914" scale="0.1 0.1 0.1" obj-model="mtl: assets/3Dmodels/lampe/Untitled.mtl; obj: assets/3Dmodels/lampe/Untitled.obj"></a-entity>
+
+     <a-entity position="1.8 1.93 1.63" scale="0.3 0.3 0.3" gltf-model="assets/3Dmodels/crow.glb" rotation="0 -90 0"></a-entity>
+     <a-entity position="-1.8 1.93 -1.73" scale="0.3 0.3 0.3" gltf-model="assets/3Dmodels/crow.glb" rotation="0 90 0"></a-entity>
+     <a-entity position="-1.8 1.93 1.73" scale="0.3 0.3 0.3" gltf-model="assets/3Dmodels/crow.glb" rotation="0 90 0"></a-entity>
+     <a-entity position="1.8 1.93 -1.73" scale="0.3 0.3 0.3" gltf-model="assets/3Dmodels/crow.glb" rotation="0 -90 0"></a-entity>
+
          <a-plane src="#rideau" material="side: double" position="1.62093 1 1.23227" width="0.75" height="2"></a-plane>
       <a-sky src="#ciel"></a-sky>
 
-      <a-camera position="0 1.6 0" look-controls wasd-controls></a-camera>
+     
+      <a-entity camera look-controls wasd-controls="acceleration: 10" position="0 1.6 0"></a-entity>
       <!-- <a-entity camera="active: true" look-controls wasd-controls position="0 1.6 0" data-aframe-default-camera></a-entity> -->
       
     </a-scene>
