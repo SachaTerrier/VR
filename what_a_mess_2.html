@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Spawn insectes aléatoires</title>
+
+    <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/@c-frame/aframe-physics-system@4.2.2/dist/aframe-physics-system.min.js"></script>
+
+    <script>
+      AFRAME.registerComponent('spawn-insects', {
+        init: function () {
+          const sceneEl = this.el;
+
+          // fonction qui crée les insectes
+          const spawnInsects = () => {
+            for (let i = 0; i < 80; i++) {
+              const insect = document.createElement('a-entity');
+
+              // positions : x,z dans [-1.5, 1.5], y dans [0,3]
+              const x = Math.random() * 3 - 1.8;
+              const y = Math.random() * 3; // 0 .. 3
+              const z = Math.random() * 3 - 1.5;
+
+              // scale aléatoire entre 0.1 et 0.6
+              const s = (Math.random() * 0.8 + 0.2).toFixed(2);
+
+              // rotation aléatoire sur l'axe Z (roll)
+              const ry = (Math.random() * 180).toFixed(2);
+               const rz = (Math.random() * 180).toFixed(2);
+                const rx = (Math.random() * 180).toFixed(2);
+
+              insect.setAttribute('gltf-model', '#insect-glb');
+              insect.setAttribute('position', `${x} ${y} ${z}`);
+              insect.setAttribute('scale', `${s} ${s} ${s}`);
+              insect.setAttribute('rotation', `${rx} ${ry} ${rz}`);
+
+              // attendre que le modèle soit chargé avant d'ajouter le corps physique
+              insect.addEventListener('model-loaded', () => {
+                // on utilise un collider de type box pour stabilité/perf
+                insect.setAttribute(dynamic-body, 'shape: entity ; mass: 1');
+              });
+
+              sceneEl.appendChild(insect);
+            }
+          };
+
+          // attendre que les assets soient chargés (si possible)
+          const assetsEl = document.querySelector('a-assets');
+          if (assetsEl) {
+            assetsEl.addEventListener('loaded', spawnInsects);
+            if (assetsEl.hasLoaded) spawnInsects(); // fallback si déjà loaded
+          } else {
+            // fallback: attendre que la scène soit loaded
+            sceneEl.addEventListener('loaded', spawnInsects);
+          }
+        }
+      });
+    </script>
+  </head>
+
+  <body>
+    <!-- gravity activée ici -->
+    <a-scene spawn-insects>
+      <a-assets>
+        <a-asset-item id="insect-glb" src="3Dmodels/millepatte.glb"></a-asset-item>
+         <img id="scolopendre" src="img/insect.jpg">
+
+      </a-assets>
+
+      <!-- sol -->
+      <a-plane static-body position="0 0 0" rotation="-90 0 0" width="3" height="3" color="black"></a-plane>
+
+      <!-- murs du cube (static-body ajoutés) -->
+      <a-plane  src="#scolopendre"  material="side: double" position="0 1.5 -1.5" rotation="0 0 0" width="3" height="3"></a-plane>
+      <a-plane  src="#scolopendre"  material="side: double" position="1.5 1.5 0" rotation="0 -90 0" width="3" height="3"></a-plane>
+      <a-plane  src="#scolopendre" material="side: double" position="-1.5 1.5 0" rotation="0 90 0" width="3" height="3"></a-plane>
+      <a-plane  src="#scolopendre" material="side: double" position="0 1.5 1.5" rotation="0 180 0" width="3" height="3"></a-plane>
+
+      <!-- plafond optionnel pour vraiment enfermer le cube -->
+      <a-plane static-body position="0 3 0" rotation="90 0 0" width="3" height="3" color="black"></a-plane>
+
+      <!-- caméra -->
+      <a-entity camera look-controls wasd-controls="acceleration: 9" position="0 1.5 0"></a-entity>
+
+      <a-sky color="brown"></a-sky>
+    </a-scene>
+  </body>
+</html>
