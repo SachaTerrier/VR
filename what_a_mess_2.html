@@ -1,10 +1,10 @@
 <html>
   <head>
-    <meta charset="utf-8" />
-    <title>Spawn insectes aléatoires</title>
+
+  
 
     <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/@c-frame/aframe-physics-system@4.2.2/dist/aframe-physics-system.min.js"></script>
+    
 
     <script>
       AFRAME.registerComponent('spawn-insects', {
@@ -13,7 +13,7 @@
 
           // fonction qui crée les insectes
           const spawnInsects = () => {
-            for (let i = 0; i < 80; i++) {
+            for (let i = 0; i < 70; i++) {
               const insect = document.createElement('a-entity');
 
               // positions : x,z dans [-1.5, 1.5], y dans [0,3]
@@ -22,7 +22,7 @@
               const z = Math.random() * 3 - 1.5;
 
               // scale aléatoire entre 0.1 et 0.6
-              const s = (Math.random() * 0.8 + 0.2).toFixed(2);
+              const s = (Math.random() * 0.8 + 0.3).toFixed(2);
 
               // rotation aléatoire sur l'axe Z (roll)
               const ry = (Math.random() * 180).toFixed(2);
@@ -37,7 +37,7 @@
               // attendre que le modèle soit chargé avant d'ajouter le corps physique
               insect.addEventListener('model-loaded', () => {
                 // on utilise un collider de type box pour stabilité/perf
-                insect.setAttribute(dynamic-body, 'shape: entity ; mass: 1');
+                insect.setAttribute('dynamic-body');
               });
 
               sceneEl.appendChild(insect);
@@ -62,8 +62,8 @@
     <!-- gravity activée ici -->
     <a-scene spawn-insects>
       <a-assets>
-        <a-asset-item id="insect-glb" src="3Dmodels/millepatte.glb"></a-asset-item>
-         <img id="scolopendre" src="img/insect.jpg">
+        <a-asset-item id="insect-glb" src="assets/3Dmodels/millepatte.glb"></a-asset-item>
+         <img id="scolopendre" src="assets/img/insect.jpg">
 
       </a-assets>
 
