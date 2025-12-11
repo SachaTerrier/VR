@@ -24,16 +24,32 @@
 
       </a-assets>
 
-      <!-- formes -->
-       <!-- <a-entity geometry="primitive: box" position="1 2 -3" scale="0.5 0.5 0.5" color="#4CC3D9"></a-entity> -->
-
       
 
-      <!-- environnement  -->
-      <a-plane src="#zigzag" position="0 0 0" rotation="-90 0 0" width="4" height="4"></a-plane>
+      <!-- environnement et lumiere -->
 
+       <a-sky src="#ciel" color="#d10000"></a-sky>
+
+      <a-plane position="0 0 0" rotation="-90 0 0" width="4" height="4" color="#430000"></a-plane>
+
+       <!-- lumiere central --><a-light type="spot" position="0 4.75 0.1" intensity="1" distance="8" light="color: #ff4000; distance: 5.6; intensity: 10.66; penumbra: 1" rotation="-90 0 0"></a-light>
+
+      <a-light type="spot" position="-1.3 -0.2 -1.6" intensity="1" distance="8"  light="angle: 60; color: #ff2e2e; distance: 8; intensity: 0.8; penumbra: 1" rotation="90 90 0"></a-light>
+
+      <a-light type="spot" position="-1.3 -0.2 1.3" intensity="1" distance="8"  light="color: #d10000; intensity: 0.8; penumbra: 1" rotation="90 90 0"></a-light>
       
-      <!-- contour -->
+      <a-light type="spot" position="1 -0.2 1.4" intensity="1" distance="8"  light="color: #db0000; intensity: 1.7; penumbra: 1" rotation="90 90 0"></a-light>
+
+      <a-light type="spot" position="0.9 -0.2 -1.5" intensity="1" distance="8"  light="color: #db0000; intensity: 2.5; penumbra: 1" rotation="90 90 0"></a-light>
+
+      <a-light type="spot" position="1.6 -0.3 -0.2" intensity="1" distance="8" light="color: #ff0000; distance: 4.3; intensity: 2.5; penumbra: 1" rotation="90 90 0"></a-light>
+      
+      <a-light type="spot" position="0 -1.9532 0.1" intensity="1" distance="8" light="color: #b30000; distance: 5.6; intensity: 5.6; penumbra: 1" rotation="90 0 0"></a-light>
+
+      <a-light type="spot" position="1.5 2.2 1.7" intensity="1" distance="8" light="color: #b30000; distance: 3.86; intensity: 1.36; penumbra: 1" rotation="-90 0 0"></a-light>
+
+      <a-light type="spot" position="-1.8 2.2 1.7" intensity="1" distance="8" light="color: #b30000; distance: 3.86; intensity: 1.36; penumbra: 1" rotation="-90 0 0"></a-light>
+      <!-- mur contour -->
       <a-plane src="#rideau" material="side: double" position="1.25 1 2" width="1.5" height="2"></a-plane>
       <a-plane src="#rideau" material="side:double" position="0 1 -2" rotation="0 0 0" width="4" height="2"></a-plane>
       <a-plane src="#rideau" material="side: double" position="2 1 0" rotation="0 -90 0" width="4" height="2"></a-plane>
@@ -42,34 +58,37 @@
 
       <!-- moitié droite  -->
       <a-plane src="#rideau" material="side: double" position="-1.5 1 -1" width="1" height="2"></a-plane>
-     <a-plane src="#rideau" material="side: double" position="-1 1 -0.87700" width="1.25" height="2" rotation="0 90 0"></a-plane>
+     <a-plane src="#rideau" material="side: double" position="-1 1 -0.88" width="1.25" height="2" rotation="0 90 0"></a-plane>
     
-      <!-- <a-plane src="#rideau" material="side: double" position="-1.5 1 -0.072" width="0.75" height="2" rotation="0 90 0"></a-plane> -->
-      <a-plane src="#rideau" material="side: double" position="-1.25 1 0.767" width="1.5" height="2"></a-plane>
-      <a-plane src="#rideau" material="side: double" position="-1.5 1 1.626" width="0.75" height="2" rotation="0 90 0"></a-plane>
-      <a-plane src="#rideau" material="side: double" position="-0.5 1 1.13121" width="0.75" height="2" rotation="0 90 0"></a-plane>
-      <a-plane src="#rideau" material="side: double" position="0.00093 1 1.12976" width="1.75" height="2" rotation="0 90 0"></a-plane>
+      
+      <a-plane src="#rideau" material="side: double" position="-1.25 1 0.76" width="1.5" height="2"></a-plane>
+      <a-plane src="#rideau" material="side: double" position="-1.5 1 1.6" width="0.75" height="2" rotation="0 90 0"></a-plane>
+      <a-plane src="#rideau" material="side: double" position="-0.5 1 1.13" width="0.75" height="2" rotation="0 90 0"></a-plane>
+      <a-plane src="#rideau" material="side: double" position="0 1 1.13" width="1.75" height="2" rotation="0 90 0"></a-plane>
      <a-plane src="#rideau" material="side: double" position="0.5 1 1.5" width="1" height="2" rotation="0 90 0"></a-plane>
-       <a-plane src="#rideau" material="side: double" position="0.478 1 -0.72131" width="1.5" height="2"></a-plane>
-       <a-plane src="#rideau" material="side: double" position="0.61414 1 0.25084" width="1.25" height="2"></a-plane>
-       <a-plane src="#rideau" material="side: double" position="1.22941 1 0.02384" width="1.5" height="2" rotation="0 90 0"></a-plane>
-      <a-plane src="#rideau" material="side: double" position="0.8836 1 -1.24628" width="2.25" height="2"></a-plane>
 
-       <!-- statue -->
-     <a-entity position="-1.49706 -0.00781 -0.73771" scale="0.5 0.5 0.5" obj-model="mtl: assets/3Dmodels/venus/statue.mtl; obj: assets/3Dmodels/venus/statue.obj" rotation="0.1 90 0"></a-entity>
-     <a-entity position="-1.72389 0 -1.73504" scale="0.1 0.1 0.1" obj-model="mtl: assets/3Dmodels/lampe/Untitled.mtl; obj: assets/3Dmodels/lampe/Untitled.obj"></a-entity>
-     <a-entity position="-1.72389 0 1.73825" scale="0.1 0.1 0.1" obj-model="mtl: assets/3Dmodels/lampe/Untitled.mtl; obj: assets/3Dmodels/lampe/Untitled.obj"></a-entity>
-     <a-entity position="1.80223 0 -1.73504" scale="0.1 0.1 0.1" obj-model="mtl: assets/3Dmodels/lampe/Untitled.mtl; obj: assets/3Dmodels/lampe/Untitled.obj"></a-entity>
+
+       <a-plane src="#rideau" material="side: double" position="0.5 1 -0.72" width="1.5" height="2"></a-plane>
+       <a-plane src="#rideau" material="side: double" position="0.6 1 0.25" width="1.25" height="2"></a-plane>
+       <a-plane src="#rideau" material="side: double" position="1.23 1 0" width="1.5" height="2" rotation="0 90 0"></a-plane>
+      <a-plane src="#rideau" material="side: double" position="0.9 1 -1.25" width="2.25" height="2"></a-plane>
+
+       <!-- statue et lampe -->
+     <a-entity position="-1.5 0 -0.7" scale="0.5 0.5 0.5" obj-model="mtl: assets/3Dmodels/venus/statue.mtl; obj: assets/3Dmodels/venus/statue.obj" rotation="0.1 90 0"></a-entity>
+     <a-entity position="-1.7 0 -1.73" scale="0.1 0.1 0.1" obj-model="mtl: assets/3Dmodels/lampe/Untitled.mtl; obj: assets/3Dmodels/lampe/Untitled.obj"></a-entity>
+     <a-entity position="-1.7 0 1.73" scale="0.1 0.1 0.1" obj-model="mtl: assets/3Dmodels/lampe/Untitled.mtl; obj: assets/3Dmodels/lampe/Untitled.obj"></a-entity>
+     <a-entity position="1.8 0 -1.73" scale="0.1 0.1 0.1" obj-model="mtl: assets/3Dmodels/lampe/Untitled.mtl; obj: assets/3Dmodels/lampe/Untitled.obj"></a-entity>
 
      <a-entity position="1.80223 0 1.61914" scale="0.1 0.1 0.1" obj-model="mtl: assets/3Dmodels/lampe/Untitled.mtl; obj: assets/3Dmodels/lampe/Untitled.obj"></a-entity>
-
+      
+     <!-- corbeau-->
      <a-entity position="1.8 1.93 1.63" scale="0.3 0.3 0.3" gltf-model="assets/3Dmodels/crow.glb" rotation="0 -90 0"></a-entity>
      <a-entity position="-1.8 1.93 -1.73" scale="0.3 0.3 0.3" gltf-model="assets/3Dmodels/crow.glb" rotation="0 90 0"></a-entity>
      <a-entity position="-1.8 1.93 1.73" scale="0.3 0.3 0.3" gltf-model="assets/3Dmodels/crow.glb" rotation="0 90 0"></a-entity>
      <a-entity position="1.8 1.93 -1.73" scale="0.3 0.3 0.3" gltf-model="assets/3Dmodels/crow.glb" rotation="0 -90 0"></a-entity>
 
          <a-plane src="#rideau" material="side: double" position="1.62093 1 1.23227" width="0.75" height="2"></a-plane>
-      <a-sky src="#ciel"></a-sky>
+      
 
      
       <a-entity camera look-controls wasd-controls="acceleration: 10" position="0 1.6 0"></a-entity>
