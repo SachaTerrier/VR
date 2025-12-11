@@ -7,6 +7,7 @@
     
 
     <script>
+        // le script ci dessous a été fait a l'aide de l'IA pour generer aleatoirement les modele 3d dans les cube a chaque nouveau charagement de la scene : la position , la rotation et la taille sont aleatoires
       AFRAME.registerComponent('spawn-insects', {
         init: function () {
           const sceneEl = this.el;
@@ -16,19 +17,19 @@
             for (let i = 0; i < 70; i++) {
               const insect = document.createElement('a-entity');
 
-              // positions : x,z dans [-1.5, 1.5], y dans [0,3]
+              // positions aleatoire
               const x = Math.random() * 3 - 1.8;
-              const y = Math.random() * 3; // 0 .. 3
+              const y = Math.random() * 3; 
               const z = Math.random() * 3 - 1.5;
 
-              // scale aléatoire entre 0.1 et 0.6
+              // taille aleatoire
               const s = (Math.random() * 0.8 + 0.3).toFixed(2);
 
-              // rotation aléatoire sur l'axe Z (roll)
+              // rotation aléatoire 
               const ry = (Math.random() * 180).toFixed(2);
                const rz = (Math.random() * 180).toFixed(2);
                 const rx = (Math.random() * 180).toFixed(2);
-
+              // spawn les modeles 3d selon les parametre definit precedement
               insect.setAttribute('gltf-model', '#insect-glb');
               insect.setAttribute('position', `${x} ${y} ${z}`);
               insect.setAttribute('scale', `${s} ${s} ${s}`);
@@ -44,13 +45,13 @@
             }
           };
 
-          // attendre que les assets soient chargés (si possible)
+          // chargement des asset
           const assetsEl = document.querySelector('a-assets');
           if (assetsEl) {
             assetsEl.addEventListener('loaded', spawnInsects);
-            if (assetsEl.hasLoaded) spawnInsects(); // fallback si déjà loaded
+            if (assetsEl.hasLoaded) spawnInsects(); 
           } else {
-            // fallback: attendre que la scène soit loaded
+            
             sceneEl.addEventListener('loaded', spawnInsects);
           }
         }
@@ -59,7 +60,7 @@
   </head>
 
   <body>
-    <!-- gravity activée ici -->
+    <!-- model et images-->
     <a-scene spawn-insects>
       <a-assets>
         <a-asset-item id="insect-glb" src="assets/3Dmodels/millepatte.glb"></a-asset-item>
@@ -70,17 +71,19 @@
       <!-- sol -->
       <a-plane static-body position="0 0 0" rotation="-90 0 0" width="3" height="3" color="black"></a-plane>
 
-      <!-- murs du cube (static-body ajoutés) -->
+      <!-- murs du cube  -->
       <a-plane  src="#scolopendre"  material="side: double" position="0 1.5 -1.5" rotation="0 0 0" width="3" height="3"></a-plane>
       <a-plane  src="#scolopendre"  material="side: double" position="1.5 1.5 0" rotation="0 -90 0" width="3" height="3"></a-plane>
       <a-plane  src="#scolopendre" material="side: double" position="-1.5 1.5 0" rotation="0 90 0" width="3" height="3"></a-plane>
       <a-plane  src="#scolopendre" material="side: double" position="0 1.5 1.5" rotation="0 180 0" width="3" height="3"></a-plane>
 
-      <!-- plafond optionnel pour vraiment enfermer le cube -->
+      
       <a-plane static-body position="0 3 0" rotation="90 0 0" width="3" height="3" color="black"></a-plane>
 
       <!-- caméra -->
       <a-entity camera look-controls wasd-controls="acceleration: 9" position="0 1.5 0"></a-entity>
+      
+      
 
       <a-sky color="brown"></a-sky>
     </a-scene>
